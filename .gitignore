@@ -1,0 +1,15 @@
+shattrd.ko
+shattrd.mod
+shattrd.mod.c
+shattrd.mod.o
+shattrd.o
+modules.order
+Module.symvers
+.shattrd.o.cmd
+.shattrd.mod.o.cmd
+.shattrd.mod.cmd
+.shattrd.ko.cmd
+.modules.order.cmd
+.module-common.o
+.Module.symvers.cmd
+..module-common.o.cmd
