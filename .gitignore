@@ -13,3 +13,5 @@ Module.symvers
 .module-common.o
 .Module.symvers.cmd
 ..module-common.o.cmd
+.cache/clangd/index
+.idea

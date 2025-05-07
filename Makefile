@@ -12,3 +12,6 @@ load:
 
 unload:
 	sudo rmmod shattrd
+
+compile_commands.json:
+	bear -- make -j$(nproc) all
