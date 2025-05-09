@@ -1,17 +1,24 @@
 obj-m += shattrd.o
 CFLAGS_shattrd.o := -O0 -g
 
-all:
+all: ## Build the kernel module
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
 
-clean:
+clean: ## Clean build artifacts
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
 
-load:
+load: ## Load kernel module
 	sudo insmod shattrd.ko
 
-unload:
+unload: ## Unload kernel module
 	sudo rmmod shattrd
 
-compile_commands.json:
+commands: ## Generate compile_commands.json using bear
 	bear -- make -j$(nproc) all
+
+
+.PHONY: help
+
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .+' $(MAKEFILE_LIST) | \
+		awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
